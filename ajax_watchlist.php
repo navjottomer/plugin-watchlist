@@ -22,7 +22,7 @@
                 <?php
             } else {
                 //Already in watchlist !
-                echo '<span align="left"><a href="' . osc_base_url(true) . '?page=custom&file=watchlist/watchlist.php">' . __('View your watchlist', 'watchlist') . '</a></span>';
+                echo '<span align="left"><a class="btn-success" href="' . osc_base_url(true) . '?page=custom&file=watchlist/watchlist.php">' . __('View your watchlist', 'watchlist') . '</a></span>';
             }
         } else {
             //error user is not login in

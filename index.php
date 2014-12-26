@@ -2,19 +2,18 @@
 /*
   Plugin Name: Watchlist
   Plugin URI: https://github.com/osclass/osclass-plugins/tree/watchlist/watchlist
-  Description: This plugin add possibility for user to watch items.
+  Description: This plugin add possibility for user to watch items. Customised to work with Tuffclassified theme
   Version: 1.0.6
   Author: Richard Martin (keny) & Osclass
   Author URI: http://www.proodi.com
   Author Email: keny10@gmail.com
   Short Name: WatchList
-  Plugin update URI: watchlist
  */
 
     define('WATCHLIST_VERSION', '1.0.5');
 
     function watchlist() {
-        echo '<a href="javascript://" class="watchlist" id="' . osc_item_id() . '">';
+        echo '<a class="btn btn-success btn-xs watchlist" href="javascript://" id="' . osc_item_id() . '">';
         echo '<span>' . __('Add to watchlist', 'watchlist') . '</span>';
         echo '</a>';
     }
