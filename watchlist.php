@@ -45,7 +45,7 @@ $adminoptions = false; ?>
 				<?php while(osc_has_items()) { ?>
 				<div class="item col-md-12" >
 					<?php include tfc_path().'ad-loop.php';?>
-					<p align="right"><a class="delete btn btn-danger btn-xs" onclick="javascript:return confirm('<?php _e('This action can not be undone. Are you sure you want to continue?', 'watchlist'); ?>')" href="<?php echo osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php') . '&delete=' . osc_item_id(); ?>" ><?php _e('Delete', 'watchlist'); ?></a></p>
+					<p align="right"><a class="delete btn btn-danger btn-xs" onclick="javascript:return confirm('<?php _e('This action can not be undone. Are you sure you want to continue?', 'watchlist'); ?>')" href="<?php echo osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php') . '&delete=' . osc_item_id(); ?>" ><?php _e('Delete from watchlist', 'watchlist'); ?></a></p>
 				</div>
 				<?php } ?>
 				<?php } ?>
