@@ -27,10 +27,7 @@
 	}
 ?>
 <?php 
-$adminoptions = false;
-osc_current_web_theme_path('head.php') ; ?>
-<body>
-	<?php osc_current_web_theme_path('header.php') ; ?>
+$adminoptions = false; ?>
 	<div class="panel panel-success row">
 		<div class="panel-heading">
 			<strong><?php _e('Your watchlist', 'watchlist'); ?></strong>
@@ -58,8 +55,3 @@ osc_current_web_theme_path('head.php') ; ?>
 			</div>
 		</div>
 	</div>
-	<?php osc_current_web_theme_path('footer.php') ; ?>
-	<?php osc_show_flash_message() ; ?>
-	<?php osc_run_hook('footer'); ?>
-</body>
-</html>
