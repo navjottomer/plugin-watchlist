@@ -14,19 +14,19 @@
                 $conn = getConnection();
                 $conn->osc_dbExec("INSERT INTO %st_item_watchlist (fk_i_item_id, fk_i_user_id) VALUES (%d, '%d')", DB_TABLE_PREFIX, $id, osc_logged_user_id());
                 ?>
-                <span align="left">
-                    <a href="<?php echo osc_base_url(true); ?>?page=custom&file=watchlist/watchlist.php">
+                
+                    <a class="btn-success btn-success btn-sm" href="<?php echo osc_base_url(true); ?>?page=custom&file=watchlist/watchlist.php">
                         <?php _e('View your watchlist', 'watchlist') ?>
                     </a>
-                </span>
+                
                 <?php
             } else {
                 //Already in watchlist !
-                echo '<span align="left"><a class="btn-success" href="' . osc_base_url(true) . '?page=custom&file=watchlist/watchlist.php">' . __('View your watchlist', 'watchlist') . '</a></span>';
+                echo '<a class="btn-success btn-success btn-sm" href="' . osc_base_url(true) . '?page=custom&file=watchlist/watchlist.php">' . __('View your watchlist', 'watchlist') . '</a>';
             }
         } else {
             //error user is not login in
-            echo '<a href="' . osc_user_login_url() . '">' . __('Please login', 'watchlist') . '</a>';
+            echo '<a class="btn btn-success btn-sm" href="' . osc_user_login_url() . '">' . __('Please login', 'watchlist') . '</a>';
         }
     }
 

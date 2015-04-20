@@ -13,9 +13,9 @@
     define('WATCHLIST_VERSION', '1.0.8');
 
     function watchlist() {
-        echo '<a class="btn btn-success btn-xs watchlist" href="javascript://" id="' . osc_item_id() . '">';
-        echo '<span>' . __('Add to watchlist', 'watchlist') . '</span>';
-        echo '</a>';
+        echo '<span class="watchlist" id="' . osc_item_id() . '"><a class="btn btn-success btn-sm" href="javascript://">';
+        echo __('Add to watchlist', 'watchlist');
+        echo '</a></span>';
     }
 
     function watchlist_user_menu() {
