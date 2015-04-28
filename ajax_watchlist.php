@@ -16,17 +16,17 @@
                 ?>
                 
                     <a class="btn-success btn-success btn-sm" href="<?php echo osc_base_url(true); ?>?page=custom&file=watchlist/watchlist.php">
-                        <?php _e('View your watchlist', 'watchlist') ?>
+                        <i class="fa fa-heart fa-fw"></i><?php _e('View your watchlist', 'watchlist') ?>
                     </a>
                 
                 <?php
             } else {
                 //Already in watchlist !
-                echo '<a class="btn-success btn-success btn-sm" href="' . osc_base_url(true) . '?page=custom&file=watchlist/watchlist.php">' . __('View your watchlist', 'watchlist') . '</a>';
+                echo '<a class="btn-success btn-success btn-sm" href="' . osc_base_url(true) . '?page=custom&file=watchlist/watchlist.php"><i class="fa fa-heart fa-fw"></i>' . __('View your watchlist', 'watchlist') . '</a>';
             }
         } else {
             //error user is not login in
-            echo '<a class="btn btn-success btn-sm" href="' . osc_user_login_url() . '">' . __('Please login', 'watchlist') . '</a>';
+            echo '<a class="btn btn-warning btn-sm" href="' . osc_user_login_url() . '"><i class="fa fa-heart fa-fw"></i>' . __('Please login', 'watchlist') . '</a>';
         }
     }
 
