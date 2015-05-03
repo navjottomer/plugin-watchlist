@@ -28,9 +28,9 @@
 ?>
 <?php 
 $adminoptions = false; ?>
-	<div class="panel panel-success row">
-		<div class="panel-heading">
-			<strong><?php _e('Your watchlist', 'watchlist'); ?></strong>
+	<div class="panel panel-success">
+		<div class="panel-heading lead">
+			<?php _e('Your watchlist', 'watchlist'); ?>
 		</div>
 		<div class="content user_account panel-body">
 			<div id="sidebar" class="col-md-3">
