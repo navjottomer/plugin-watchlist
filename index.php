@@ -3,14 +3,14 @@
   Plugin Name: Watchlist
   Plugin URI: https://github.com/osclass/osclass-plugins/tree/watchlist/watchlist
   Description: This plugin add possibility for user to watch items. Customised to work with Tuffclassified theme
-  Version: 1.0.8
+  Version: 3.0
   Author: Richard Martin (keny) & Osclass
   Author URI: http://www.proodi.com
   Author Email: keny10@gmail.com
   Short Name: WatchList
  */
 
-    define('WATCHLIST_VERSION', '1.0.8');
+    define('WATCHLIST_VERSION', '3.0');
 
     function watchlist() {
         echo '<span class="watchlist" id="' . osc_item_id() . '"><a class="btn btn-default btn-sm" href="javascript://">';
@@ -32,15 +32,6 @@
     function watchlist_call_after_uninstall() {
         $conn = getConnection();
         $conn->osc_dbExec('DROP TABLE %st_item_watchlist', DB_TABLE_PREFIX);
-    }
-
-    function watchlist_footer() {
-        echo '<!-- Watchlist js -->';
-        echo '<script type="text/javascript">';
-        echo 'var watchlist_url = "' . osc_ajax_plugin_url('watchlist/ajax_watchlist.php') . '";';
-        echo '</script>';
-        echo '<script type="text/javascript" src="' . osc_plugin_url('watchlist/js/watchlist.js') . 'watchlist.js"></script>';
-        echo '<!-- Watchlist js end -->';
     }
 
     function watchlist_scripts_loaded() {
@@ -73,13 +64,13 @@
     osc_add_hook('user_menu', 'watchlist_user_menu');
 
     // add javascript
-    if(osc_version()<311) {
-        osc_add_hook('footer', 'watchlist_footer');
-    } else {
-        osc_add_hook('scripts_loaded', 'watchlist_scripts_loaded');
-        osc_register_script('watchlist', osc_plugin_url('watchlist/js/watchlist.js') . 'watchlist.js', array('jquery'));
-        osc_enqueue_script('watchlist');
+
+    osc_add_hook('footer_scripts_loaded', 'watchlist_scripts_loaded');
+    function tfc_style_load(){
+        tfc_register_script('watchlist', osc_plugin_url('watchlist/js/watchlist.js') . 'watchlist.js', 'bootstrap');
+        tfc_enqueue_script('watchlist');
     }
+    osc_add_hook('tuffclassified_loaded','tfc_style_load');
 
     //Delete item
     osc_add_hook('delete_item', 'watchlist_delete_item');
