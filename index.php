@@ -16,7 +16,32 @@
         echo '<span class="watchlist" id="' . osc_item_id() . '"><a class="btn btn-default btn-sm" href="javascript://">';
         echo '<i class="fa fa-heart fa-fw"></i>'.__('Watchlist', 'watchlist');
         echo '</a></span>';
+    osc_add_hook('footer_scripts_loaded', 'watchlist_scripts_loaded');
+	osc_add_hook('footer_scripts_loaded','watchlist_js');
     }
+	function watchlist_js(){ ?>
+	<script>
+	$(document).ready(function($) {
+    $(".watchlist").click(function() {
+        var id = $(this).attr("id");
+        var dataString = 'id='+ id ;
+        var parent = $(this);
+
+        $(this).fadeOut(300);
+        $.ajax({
+            type: "POST",
+            url: watchlist_url,
+            data: dataString,
+            cache: false,
+
+            success: function(html) {
+            parent.html(html);
+            parent.fadeIn(300);
+            }
+        });
+    });
+});</script>
+	<?php }
 
     function watchlist_user_menu() {
         echo '<li class="" ><a href="' . osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php') . '" >' . __('Watchlist', 'watchlist') . '</a></li>';
@@ -64,13 +89,6 @@
     osc_add_hook('user_menu', 'watchlist_user_menu');
 
     // add javascript
-
-    osc_add_hook('footer_scripts_loaded', 'watchlist_scripts_loaded');
-    function tfc_style_load(){
-        tfc_register_script('watchlist', osc_plugin_url('watchlist/js/watchlist.js') . 'watchlist.js', 'bootstrap');
-        tfc_enqueue_script('watchlist');
-    }
-    osc_add_hook('tuffclassified_loaded','tfc_style_load');
 
     //Delete item
     osc_add_hook('delete_item', 'watchlist_delete_item');
