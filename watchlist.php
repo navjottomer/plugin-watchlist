@@ -48,10 +48,11 @@ $adminoptions = false; ?>
 					<p align="right"><a class="delete btn btn-danger btn-xs" onclick="javascript:return confirm('<?php _e('This action can not be undone. Are you sure you want to continue?', 'watchlist'); ?>')" href="<?php echo osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php') . '&delete=' . osc_item_id(); ?>" ><?php _e('Delete from watchlist', 'watchlist'); ?></a></p>
 				</div>
 				<?php } ?>
-				<?php } ?>
+				
 				<div class="pagination col-md-6 col-md-offset-5" >
-					<?php echo tfc_pagination_items(array('url' => osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php') . '&iPage={PAGE}')); ?>
+					<?php echo tfc_pagination_items(array('url' => osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php') . '&iPage={PAGE}','first_url'=> osc_render_file_url(osc_plugin_folder(__FILE__) . 'watchlist.php'))); ?>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
